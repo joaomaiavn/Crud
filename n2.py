@@ -23,6 +23,7 @@ while True:
                 break 
         else:
             estoque.append([nome, quantidade, preco])
+    #Funcionalidade "Pesquisar Produto" 
     elif escolha == "2":
             nome = input("Digite o nome do produto para pesquisar:")
             for produto in estoque:
@@ -31,9 +32,42 @@ while True:
                     break
             else:
                 print("Produto não encontrado.")
+           
+     #Funcionalidade “Alterar Produto" 
+    elif escolha == '3':
+        nome = input("Digite o nome do produto para alterar: ")
+        for produto in estoque:
+            if produto[0] == nome:
+                quantidade = imput (f"Digite a nova quantidade (atual: {produto[1]}): ")
+                preco = input (f"Digite o novo preço (atual: {produto[2]}): ")
+                if quantidade:
+                    produto [1] = int (quantidade)
+                if preco:
+                    produto [2] = float (preco)
+                break
+        else:
+            print ("Produto nâo encontado.")  
+    #Funcionalidade “Remover Produto"          
+    elif escolha == '4':
+        nome = input("Digite o nome do produto para remover: ")
+        for produto in estoque:
+            if produto [0] == nome:
+                estoque.remove(produto)
+                print("Produto removido")
+                break        
+        else :
+            print("Produto näo encotrado") 
+    #Funcionalidade “Exibir Estoque“ 
+    elif escolha == '5':
+        if not estoque:
+            print("Estoque vazio.")
+        else:
+                for produto in estoque:
+                    print(f"Produto: {produto[0]}, Quantidade: {produto[1]}, Preço: {produto[2]}")
     if escolha == "6":
       print("Saindo do programa.")
       break
     else:
       print("Opção inválida. Por favor, escolha uma opção válida.")
         
+
